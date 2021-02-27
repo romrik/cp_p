@@ -3,7 +3,7 @@ cp_p()
 {
    set -e
    strace -q -ewrite cp -- "${1}" "${2}" 2>&1 
-      | awk '{
+      | awk {
 	    count += $NF
             if (count % 10 == 0) {
                percent = count / total_size * 100
